@@ -4,7 +4,7 @@ AutomatedNotion helps you learn English effortlessly. With NotionAPI, it quickly
 Project Demo
 
 ## Link Preview
-[Link Notion Temple created by AutomatedBot](https://www.notion.so/VOCABULARY-FOR-IT-MAJOR-593ee3c313a745b39e2a03d226d11c06)
+[Link Notion Temple created by AutomatedBot](https://fluoridated-card-dab.notion.site/d353fc08863a4909b667180c49bf1d01?v=4a7baaa29c4342d5b680eed667f84635)
 
 ## Related Image
 
