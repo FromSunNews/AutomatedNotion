@@ -1,8 +1,7 @@
 # Your Easy English Learning Tool
 AutomatedNotion helps you learn English effortlessly. With NotionAPI, it quickly adds new words with translations, definitions, IPA pronunciation, audio, and images to your Notion workspace. Powered by OpenAI's ChatGPT, AutomatedNotion makes learning fun and personalized. Say goodbye to tedious tasks and hello to an exciting English learning adventure with AutomatedNotion.
 ## Demo
-
-[Project Demo](https://www.youtube.com/watch?v=your-demo-video-id)
+Project Demo
 
 ## Link Preview
 [Link Notion Temple created by AutomatedBot](https://www.notion.so/VOCABULARY-FOR-IT-MAJOR-593ee3c313a745b39e2a03d226d11c06)
@@ -18,21 +17,6 @@ AutomatedNotion helps you learn English effortlessly. With NotionAPI, it quickly
 # Introduce
 
 **AutomatedNotion** is a Node.js application built using TypeScript and the Express framework. It demonstrates a simple workflow for using environment variables to access various APIs and services, including OpenAI, LangChainJS, SerpAPI, NotionAPI, Text-To-Speech, IPA Pronunciation, and Cloudinary. The application includes various modules and tools to provide functionality for text generation, web scraping, database management, and media processing.
-
-## Technical Skills
-
-The following technical skills are required to work with this project:
-
-- Node.js
-- TypeScript
-- Express
-- OpenAI
-- SerpAPI
-- LangChainJS
-- NotionAPI
-- Cloudinary
-- Text-To-Speech
-- Git
 
 ## Setup and Usage
 
@@ -67,7 +51,7 @@ CLOUDINARY_API_KEY=<your_cloudinary_api_key>
 CLOUDINARY_API_SECRET=<your_cloudinary_api_secret>
 ```
 
-Replace `<your_openai_api_key>`, `<your_serpapi_api_key>`, `<your_notion_api_key>`, `<your_NOTION_PAGE_ID>`, `<your_cloudinary_cloud_name>`, `<your_cloudinary_api_key>`, `<your_cloudinary_api_secret>`, `<your_mysql_user>`, `<your_mysql_password>`, and `<your_mysql_database>` with your actual API keys and database credentials.
+Replace `<your_openai_api_key>`, `<your_serpapi_api_key>`, `<your_notion_api_key>`, `<your_NOTION_PAGE_ID>`, `<your_cloudinary_cloud_name>`, `<your_cloudinary_api_key>`, `<your_cloudinary_api_secret>` with your actual API keys and database credentials.
 
 4. Build the project:
 
@@ -96,10 +80,8 @@ This command starts the server using the `node` command and the `dotenv` module 
 ```
 
 ## References
-
-- [Express](https://expressjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [OpenAI API](https://www.openai.com/)
 - [SerpApi](https://serpapi.com/)
 - [Notion API](https://developers.notion.com/)
-- [Cloud
+- [LangchainJS](https://js.langchain.com/docs/get_started/introduction)
+- [Mermaid Diagram Syntax](https://mermaid.js.org/intro/) 
