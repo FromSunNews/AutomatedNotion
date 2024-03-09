@@ -4,7 +4,7 @@ AutomatedNotion helps you learn English effortlessly. With NotionAPI, it quickly
 Project Demo
 
 ## Link Preview
-[Link Notion Temple created by AutomatedBot](https://fluoridated-card-dab.notion.site/d353fc08863a4909b667180c49bf1d01?v=4a7baaa29c4342d5b680eed667f84635)
+[Link Notion Template created by AutomatedBot](https://fluoridated-card-dab.notion.site/d353fc08863a4909b667180c49bf1d01?v=4a7baaa29c4342d5b680eed667f84635)
 
 ## Related Image
 
@@ -25,7 +25,7 @@ To set up and use this project, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/your-username/your-repo.git](https://github.com/FromSunNews/AutomatedNotion.git)
+git clone https://github.com/FromSunNews/AutomatedNotion.git
 ```
 
 2. Install dependencies:
