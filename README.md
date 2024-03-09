@@ -1,12 +1,12 @@
 # Your Easy English Learning Tool
 AutomatedNotion helps you learn English effortlessly. With NotionAPI, it quickly adds new words with translations, definitions, IPA pronunciation, audio, and images to your Notion workspace. Powered by OpenAI's ChatGPT, AutomatedNotion makes learning fun and personalized. Say goodbye to tedious tasks and hello to an exciting English learning adventure with AutomatedNotion.
-## Demo
+# Demo
 Project Demo
 
-## Link Preview
+# Link Preview
 [Link Notion Template created by AutomatedBot](https://fluoridated-card-dab.notion.site/d353fc08863a4909b667180c49bf1d01?v=4a7baaa29c4342d5b680eed667f84635)
 
-## Related Image
+# Related Image
 
 ![image](https://github.com/FromSunNews/AutomatedNotion/assets/111409554/3b84e860-42dc-4023-bfb5-c7473fd023c2)
 ![image](https://github.com/FromSunNews/AutomatedNotion/assets/111409554/1f874ecd-219b-469b-baa6-68337cb1502e)
@@ -18,7 +18,7 @@ Project Demo
 
 **AutomatedNotion** is a Node.js application built using TypeScript and the Express framework. It demonstrates a simple workflow for using environment variables to access various APIs and services, including OpenAI, LangChainJS, SerpAPI, NotionAPI, Text-To-Speech, IPA Pronunciation, and Cloudinary. The application includes various modules and tools to provide functionality for text generation, web scraping, database management, and media processing.
 
-## Setup and Usage
+# Setup and Usage
 
 To set up and use this project, follow these steps:
 
@@ -79,7 +79,7 @@ This command starts the server using the `node` command and the `dotenv` module 
 }
 ```
 
-## References
+# References
 - [TypeScript](https://www.typescriptlang.org/)
 - [SerpApi](https://serpapi.com/)
 - [Notion API](https://developers.notion.com/)
