@@ -6,18 +6,17 @@ import { getDiagram, getGroupVocab, getInfoVocab } from "providers/langchain.pro
 import { getMutilImage } from "providers/serpapi.provider";
 import { getAudioURL } from "providers/tts.provider";
 import { appendBlock, createDatabaseInPage, createNotionPage } from "providers/notion.provider";
-import { handleChunkString, isImageValid } from "utilities/function";
+import { handleChunkString, handleVocabInput, isImageValid } from "utilities/function";
 import { env } from "config/environment";
 import { RelatedImage } from "common/interfaces/ImageResult.interface";
-
+import { dataJson } from "data/data";
 const handleAutomatedVocab = async (data: { vocabs: string, title: string }) => {
   try {
-    const vocabsText = data.vocabs.toLowerCase();
+    // cho về LowerCase
+    const vocabsText = handleVocabInput(data.vocabs);
     let phrasesArr = vocabsText.split(",");
-    // xử lý trường hợp người dùng có thể để space (vd: "chat, bot" => "chat,bot") 
-    phrasesArr = phrasesArr.map(phrase => phrase.trim());
     // tách mỗi 10 từ vào 1 string
-    const chunksVocab = handleChunkString(data.vocabs, 10);
+    const chunksVocab = handleChunkString(vocabsText, 10);
 
     // Đầu tiên gọi langchain để xử lý group
     const vocabGroupArr: VocabTemplate[] = await getGroupVocab(chunksVocab);
@@ -52,6 +51,8 @@ const handleAutomatedVocab = async (data: { vocabs: string, title: string }) => 
     const dataBaseId = await createDatabaseInPage(env.NOTION_PAGE_ID as string, data.title, coverDatabse)
     let result;
 
+    // Gộp các đối tượng có cùng "title" thành một đối tượng duy nhất
+    const mergedObjects: VocabTemplate[] = [];
     if (dataBaseId) {
       // đầu tiên sẽ sử lý phát âm IPAs
       const vocabsArr: VocabTemplate[] = convertTextsToIPA(phrasesArr);
@@ -83,9 +84,6 @@ const handleAutomatedVocab = async (data: { vocabs: string, title: string }) => 
         vocabAudioUrl,
       ];
 
-      // Gộp các đối tượng có cùng "title" thành một đối tượng duy nhất
-      const mergedObjects: VocabTemplate[] = [];
-
       arrayOfVocabTemplates.forEach((arrayOfObjects) => {
         arrayOfObjects.forEach((object) => {
           let existIndex = mergedObjects.findIndex(
@@ -107,7 +105,6 @@ const handleAutomatedVocab = async (data: { vocabs: string, title: string }) => 
       });
 
       console.log("🚀 ~ handleAutomatedVocab ~ mergedObjects:", mergedObjects);
-
       result = await createNotionPage(mergedObjects, dataBaseId);
     }
 

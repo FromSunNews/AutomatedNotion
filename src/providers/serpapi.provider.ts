@@ -25,7 +25,7 @@ const getImage = (keySearch: string): Promise<GetImageResult> => {
           // tách 20 phần tử đầu tiên
           // do images_results có 100 phần tử 
           // (do serpapi quy định và không có params nào để giảm số request nên phải tách)
-          const imageResults_10 = images_results.slice(0, 20);
+          const imageResults_10 = images_results.slice(0, 5);
           const imageResults: GetImageResult = {
             key_search: keySearch,
             result: imageResults_10,

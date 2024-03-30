@@ -10,7 +10,7 @@ import { handleChunkString } from "utilities/function";
 
 const getInfo = async (vocabs: string): Promise<VocabInfo[]> => {
   // We can use zod to define a schema for the output using the `fromZodSchema` method of `StructuredOutputParser`.
-
+  const vocabsArr = vocabs.split(",");
   const parser = StructuredOutputParser.fromZodSchema(
     z.array(
       z.object({
@@ -65,10 +65,13 @@ const getInfo = async (vocabs: string): Promise<VocabInfo[]> => {
         format_instructions: parser.getFormatInstructions(),
       })
       .then((response: VocabInfo[]) => {
-        response.map((item) => {
-          item.title = item.title.toLowerCase();
+
+
+        const lowerCaseResponse = response.map((item, index: number) => {
+          item.title = vocabsArr[index];
+          return item
         });
-        resolve(response);
+        resolve(lowerCaseResponse);
       })
       .catch((error) => {
         reject(error);
@@ -78,6 +81,7 @@ const getInfo = async (vocabs: string): Promise<VocabInfo[]> => {
 
 export const getGroup = async (vocabs: string): Promise<VocabGroup[]> => {
   // We can use zod to define a schema for the output using the `fromZodSchema` method of `StructuredOutputParser`.
+  const vocabsArr = vocabs.split(",");
   const parser = StructuredOutputParser.fromZodSchema(
     z.array(
       z.object({
@@ -148,10 +152,11 @@ export const getGroup = async (vocabs: string): Promise<VocabGroup[]> => {
       ]`,
       })
       .then((response: VocabGroup[]) => {
-        response.map((item) => {
-          item.title = item.title.toLowerCase();
+        const lowerCaseResponse = response.map((item, index) => {
+          item.title = vocabsArr[index];
+          return item
         });
-        resolve(response);
+        resolve(lowerCaseResponse);
       })
       .catch((error) => {
         reject(error);
