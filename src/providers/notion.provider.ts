@@ -101,7 +101,7 @@ export async function createNotionPage(vocabArr: VocabTemplate[], dataBaseId: st
               {
                 type: "text",
                 text: {
-                  content: vocab?.translate || [],
+                  content: vocab?.translate || "",
                 },
                 annotations: {
                   color: "yellow_background",
@@ -114,7 +114,7 @@ export async function createNotionPage(vocabArr: VocabTemplate[], dataBaseId: st
               {
                 type: "text",
                 text: {
-                  content: vocab?.concept || [],
+                  content: vocab?.concept || "",
                 },
               },
             ],
@@ -145,7 +145,7 @@ export async function createNotionPage(vocabArr: VocabTemplate[], dataBaseId: st
               {
                 name: "Sound IPA",
                 external: {
-                  url: vocab?.audio_url || [],
+                  url: vocab?.audio_url || "",
                 },
               },
             ],
@@ -241,55 +241,59 @@ export async function createNotionPage(vocabArr: VocabTemplate[], dataBaseId: st
 }
 
 export const appendBlock = async (parentId: string, mermaidSyntax: string) => {
-  const response = await notion.blocks.children.append({
-    block_id: parentId,
-    children: [
-      {
-        type: "divider",
-        divider: {},
-      },
-      {
-        type: "toggle",
-        toggle: {
-          rich_text: [
-            {
-              type: "text",
-              text: {
-                content: "Diagram",
-              },
-              annotations: {
-                bold: true,
-                italic: false,
-                strikethrough: false,
-                underline: false,
-                code: false,
-                color: "purple_background",
-              },
-            },
-          ],
-          color: "default",
-          children: [
-            {
-              type: "code",
-              code: {
-                caption: [],
-                rich_text: [
-                  {
-                    type: "text",
-                    text: {
-                      content: mermaidSyntax,
-                    },
-                  },
-                ],
-                language: "mermaid",
-              },
-            },
-          ],
+  try {
+    const response = await notion.blocks.children.append({
+      block_id: parentId,
+      children: [
+        {
+          type: "divider",
+          divider: {},
         },
-      },
-    ],
-  });
-  console.log(response);
+        {
+          type: "toggle",
+          toggle: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: "Diagram",
+                },
+                annotations: {
+                  bold: true,
+                  italic: false,
+                  strikethrough: false,
+                  underline: false,
+                  code: false,
+                  color: "purple_background",
+                },
+              },
+            ],
+            color: "default",
+            children: [
+              {
+                type: "code",
+                code: {
+                  caption: [],
+                  rich_text: [
+                    {
+                      type: "text",
+                      text: {
+                        content: mermaidSyntax,
+                      },
+                    },
+                  ],
+                  language: "mermaid",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+    console.log(response);
+  } catch (error) {
+    return
+  }
 };
 
 export const createDatabaseInPage = async (parentId: string, title: string, coverDatabse: string) => {
